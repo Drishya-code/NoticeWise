@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://drishya-code.github.io/NoticeWise/"><strong>Open the live demo</strong></a> ·
+  <a href="https://drishya-code.github.io/NoticeWise/?sample=1"><strong>Open the live demo</strong></a> ·
   <a href="https://github.com/Drishya-code/NoticeWise">Source on GitHub</a>
 </p>
 
