@@ -1,26 +1,53 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f5f0"><meta name="description" content="Turn confusing public notices into clear steps, dates, and source-backed answers with open AI.">
-  <title>NoticeWise — Make the fine print make sense</title><link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5f0">
+  <meta name="description" content="Turn confusing public notices into clear steps, dates, and source-backed answers with Gemma 4.">
+  <title>NoticeWise — Make the fine print make sense</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header class="topbar"><a class="brand" href="#top" aria-label="NoticeWise home"><span class="brandmark">N<span>W</span></span><span>NoticeWise</span></a><div class="top-right"><span class="model-pill"><i></i><span id="model-label">Gemma 4 ready</span></span><a href="#about" class="nav-link">About this tool</a></div></header>
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="NoticeWise home"><span class="brandmark">N<span>W</span></span><span>NoticeWise</span></a>
+  <div class="top-right"><span class="model-pill"><i></i><span id="model-label">Gemma 4 ready</span></span><a href="#about" class="nav-link">About this tool</a></div>
+</header>
 <main id="top">
-  <section class="hero"><div class="hero-copy"><div class="eyebrow"><span class="eyebrow-line"></span> PUBLIC NOTICES, MADE HUMAN</div><h1>Make the fine print<br><em>make sense.</em></h1><p class="hero-text">Turn dense circulars into clear next steps, important dates, and answers you can check against the original.</p><div class="hero-proof"><span class="proof-icon">✳</span><span>Powered by open-weight Gemma 4</span><span class="proof-dot">·</span><span>Your notice stays yours</span></div></div><div class="hero-stamp"><div class="stamp-ring"><span>LESS DECODING</span><strong>More<br>doing.</strong><span>ONE NOTICE AT A TIME</span></div><span class="stamp-star">✳</span></div></section>
-  <section class="workspace" aria-label="Notice analyzer"><div class="input-panel">
-    <div class="section-heading"><div><span class="step-label">01 / ADD YOUR NOTICE</span><h2>What does it say?</h2></div><button id="sample-btn" class="text-button">Try a sample <span>↗</span></button></div>
-    <label class="field-label" for="notice-text">Paste notice text or add a photo</label>
-    <textarea id="notice-text" placeholder="Paste a school circular, scholarship announcement, community notice…" rows="8"></textarea>
-    <div class="input-tools"><label class="upload-button" for="image-file"><span class="upload-icon">＋</span><span id="file-label">Add a photo</span><input id="image-file" type="file" accept="image/png,image/jpeg,image/webp" hidden></label><span class="input-hint">PNG, JPG or WebP · up to 8 MB</span><span class="char-count" id="char-count">0 / 10,000</span></div>
-    <div class="analyze-row"><div class="language-wrap"><label for="language">Explain in</label><select id="language"><option>English</option><option>Hindi</option><option>Bengali</option><option>Tamil</option><option>Telugu</option><option>Marathi</option><option>Urdu</option></select></div><button id="analyze-btn" class="primary-button"><span>Make it clear</span><span class="button-arrow">→</span></button></div>
-    <div id="error" class="error" role="alert" hidden></div>
-    <div class="privacy-note"><span>◉</span> Processed for this session. No account, no saved notices.</div>
-  </div>
-  <div class="result-panel" id="result-panel"><div class="result-empty" id="result-empty"><div class="empty-art"><div class="paper paper-back"></div><div class="paper paper-front"><span class="paper-line wide"></span><span class="paper-line"></span><span class="paper-line short"></span><span class="paper-check">✓</span></div><span class="sparkle s1">✳</span><span class="sparkle s2">✦</span></div><span class="step-label">YOUR CLARITY CARD</span><h2>Ready when you are.</h2><p>Your summary, action list, and dates will appear here—alongside the words they came from.</p><div class="empty-features"><span>01 &nbsp;Plain-language summary</span><span>02 &nbsp;What to do and when</span><span>03 &nbsp;Source quotes to verify</span></div></div><div id="result" hidden></div></div></section>
-  <section class="trust-strip"><div><span class="trust-icon">⌕</span><p><strong>Answers with receipts</strong><br>Every action points back to the notice.</p></div><div><span class="trust-icon">◌</span><p><strong>Language that works for you</strong><br>Get the essentials in your language.</p></div><div><span class="trust-icon">✳</span><p><strong>Open AI, transparent use</strong><br>Gemma 4 helps; you stay in control.</p></div></section>
+  <section class="hero">
+    <div class="hero-copy"><div class="eyebrow"><span class="eyebrow-line"></span> PUBLIC NOTICES, MADE HUMAN</div>
+      <h1>Make the fine print<br><em>make sense.</em></h1>
+      <p class="hero-text">Turn dense circulars into clear next steps, important dates, and answers you can check against the original.</p>
+      <div class="hero-proof"><span class="proof-icon">✳</span><span>Powered by open-weight Gemma 4</span><span class="proof-dot">·</span><span>No account needed</span></div>
+    </div>
+    <div class="hero-stamp"><div class="stamp-ring"><span>LESS DECODING</span><strong>More<br>doing.</strong><span>ONE NOTICE AT A TIME</span></div><span class="stamp-star">✳</span></div>
+  </section>
+  <section class="workspace" aria-label="Notice analyzer">
+    <div class="input-panel">
+      <div class="section-heading"><div><span class="step-label">01 / ADD YOUR NOTICE</span><h2>What does it say?</h2></div><button id="sample-btn" class="text-button" type="button">Try a sample <span>↗</span></button></div>
+      <label class="field-label" for="notice-text">Paste notice text or add a photo</label>
+      <textarea id="notice-text" placeholder="Paste a school circular, scholarship announcement, community notice…" rows="8" maxlength="10000"></textarea>
+      <div class="input-tools">
+        <label class="upload-button" for="image-file"><span class="upload-icon">＋</span><span id="file-label">Add a photo</span><input id="image-file" type="file" accept="image/png,image/jpeg,image/webp" capture="environment" hidden></label>
+        <span class="input-hint">PNG, JPG or WebP · up to 8 MB</span><span class="char-count" id="char-count">0 / 10,000</span>
+      </div>
+      <div class="preferences-row">
+        <div class="language-wrap"><label for="language">Explain in</label><select id="language"><option>English</option><option>Hindi</option><option>Bengali</option><option>Tamil</option><option>Telugu</option><option>Marathi</option><option>Urdu</option></select></div>
+        <div class="language-wrap"><label for="reading-level">Style</label><select id="reading-level"><option value="Plain language">Plain</option><option value="Very simple, like explaining to a 12-year-old">Extra simple</option></select></div>
+        <button id="analyze-btn" class="primary-button" type="button"><span>Make it clear</span><span class="button-arrow">→</span></button>
+      </div>
+      <div id="error" class="error" role="alert" hidden></div>
+      <div class="privacy-note"><span>◉</span> Sent to your selected AI provider for analysis. No account or saved notices.</div>
+    </div>
+    <div class="result-panel" id="result-panel">
+      <div class="result-empty" id="result-empty"><div class="empty-art"><div class="paper paper-back"></div><div class="paper paper-front"><span class="paper-line wide"></span><span class="paper-line"></span><span class="paper-line short"></span><span class="paper-check">✓</span></div><span class="sparkle s1">✳</span><span class="sparkle s2">✦</span></div><span class="step-label">YOUR CLARITY CARD</span><h2>Ready when you are.</h2><p>Your summary, action list, and dates will appear here—alongside the words they came from.</p><div class="empty-features"><span>01 &nbsp;Plain-language summary</span><span>02 &nbsp;What to do and when</span><span>03 &nbsp;Source quotes to verify</span></div></div>
+      <div id="result" hidden></div>
+    </div>
+  </section>
+  <section class="trust-strip"><div><span class="trust-icon">⌕</span><p><strong>Answers with receipts</strong><br>Quotes are checked against pasted text.</p></div><div><span class="trust-icon">◌</span><p><strong>Dates you can act on</strong><br>See urgency and add dates to your calendar.</p></div><div><span class="trust-icon">✳</span><p><strong>Open AI, transparent use</strong><br>Gemma 4 helps; you stay in control.</p></div></section>
   <section class="about" id="about"><span class="step-label">BUILT FOR EVERYDAY CLARITY</span><p>NoticeWise helps students, families, and community members understand the notices that affect them. It highlights what a notice says, what it asks you to do, and what still needs confirmation. <strong>Always check the original before acting.</strong></p><div class="about-meta"><span>Open source · Gemma 4 · Built for Hacktoberfest Hack Day</span><a href="https://ai.google.dev/gemma/docs/core/gemma_on_gemini_api" target="_blank" rel="noreferrer">How Gemma is used ↗</a></div></section>
-</main><footer><span>NoticeWise <span class="footer-dot">✳</span></span><span>Clarity should be for everyone.</span></footer>
+</main>
+<footer><span>NoticeWise <span class="footer-dot">✳</span></span><span>Clarity should be for everyone.</span></footer>
 <script src="app.js" defer></script>
-</body></html>
+</body>
+</html>
